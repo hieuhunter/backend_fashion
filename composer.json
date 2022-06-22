@@ -14,7 +14,9 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
         "laravel/passport": "^10.1",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "league/fractal": "^0.19.2",
+        "spatie/laravel-fractal": "^5.8"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

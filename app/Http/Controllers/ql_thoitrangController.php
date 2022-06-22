@@ -167,6 +167,7 @@ class ql_thoitrangController extends Controller
             $response = [
                 'success' => true,
                 'data' => $ctgh
+                
             ];
         } else {
             $response = [

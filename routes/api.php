@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ql_thoitrangController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,10 +24,13 @@ Route::get('brand/{id}', [ql_thoitrangController::class, 'sptheoth']);
 Route::get('category/{id}', [ql_thoitrangController::class, 'sptheodm']);
 Route::get('product/{id}', [ql_thoitrangController::class, 'ctProduct']);
 
+Route::get('comment', [CommentController::class, 'listComment']);
+
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth:api']], function () {
+    
     Route::delete('delete_cart', [ql_thoitrangController::class, 'xoacart']);
     Route::delete('delete_all', [ql_thoitrangController::class, 'xoatatcagh']);
     Route::get('listCart', [ql_thoitrangController::class, 'danhsachcart']);
@@ -35,4 +39,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('user', [AuthController::class, 'user']);
     Route::get('logout', [AuthController::class, 'logout']);
     Route::post('pay', [ql_thoitrangController::class, 'thanhtoan']);
+    
+    Route::delete('comment/{id}', [CommentController::class, 'deleteComment']);
+    Route::post('comment', [CommentController::class, 'createComment']);
 });
